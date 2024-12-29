@@ -14,6 +14,7 @@ import { useUser } from '@clerk/nextjs'
 import moment from 'moment'
 import { Textarea } from '@/components/ui/textarea'
 
+const apiKey = process.env.NEXT_PUBLIC_SPEECH_API_KEY;
 function RecordAnswerSection({ mockInterviewQuestion, activeQuestionIndex, interviewData }) {
   const [userAnswer, setUserAnswer] = useState('');
   const { user } = useUser();
@@ -30,7 +31,7 @@ function RecordAnswerSection({ mockInterviewQuestion, activeQuestionIndex, inter
   } = useSpeechToText({
     continuous: true,
     crossBrowser: true,
-    googleApiKey: 'AIzaSyBOR6rfbFpQLtciqwq04PUYKhBbjQJwtLA',
+    googleApiKey: apiKey,
     useLegacyResults: false,
     speechRecognitionProperties: {
       lang: 'en-US',
